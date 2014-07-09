@@ -1,0 +1,76 @@
+http://www.civicdata.com/api/action/datastore_search_sql?sql=SELECT 
+    "CREATED ONLINE", 
+    count(*) as COUNT 
+  from "92c62bd0-64ea-48ed-b28b-6976fba03cde" 
+  WHERE "CREATED ONLINE" != '' 
+  AND "PERMIT TYPE" IN
+  ('Building/Trade Permits/Residential/Electrical',
+  'Building/Trade Permits/Residential/Mechanical',
+  'Building/Trade Permits/Residential/Plumbing',
+  'Residential Irrigation',
+  'Residential Electrical',
+  'Residential Mechanical',
+  'Residential Plumbing',
+  'Residential Solar Water Heater',
+  'LD - ROW Utility-Internet',
+  'Lien/Permit/Code Case Research Request')
+  GROUP BY "CREATED ONLINE" ORDER BY COUNT DESC
+
+http://www.civicdata.com/api/action/datastore_search_sql?sql=SELECT 
+    "PERMIT TYPE", 
+    "CREATED ONLINE", count(*) as COUNT 
+  from "92c62bd0-64ea-48ed-b28b-6976fba03cde" 
+  WHERE "CREATED ONLINE" != ''
+  AND "PERMIT TYPE" IN
+  ('Building/Trade Permits/Residential/Electrical',
+  'Building/Trade Permits/Residential/Mechanical',
+  'Building/Trade Permits/Residential/Plumbing',
+  'Residential Irrigation',
+  'Residential Electrical',
+  'Residential Mechanical',
+  'Residential Plumbing',
+  'Residential Solar Water Heater',
+  'LD - ROW Utility-Internet',
+  'Lien/Permit/Code Case Research Request') 
+  GROUP BY "PERMIT TYPE", "CREATED ONLINE" ORDER BY "PERMIT TYPE" ASC, COUNT DESC
+
+  http://www.civicdata.com/api/action/datastore_search_sql?sql=SELECT substring("DATE OPENED" from 1 for 4) as Year, 
+    "CREATED ONLINE",
+    count(*) as Count 
+  from "92c62bd0-64ea-48ed-b28b-6976fba03cde" 
+  WHERE "CREATED ONLINE" != ''
+  AND "PERMIT TYPE" IN
+  ('Building/Trade Permits/Residential/Electrical',
+  'Building/Trade Permits/Residential/Mechanical',
+  'Building/Trade Permits/Residential/Plumbing',
+  'Residential Irrigation',
+  'Residential Electrical',
+  'Residential Mechanical',
+  'Residential Plumbing',
+  'Residential Solar Water Heater',
+  'LD - ROW Utility-Internet',
+  'Lien/Permit/Code Case Research Request')
+  and substring("DATE OPENED" from 1 for 4) >= '2009'
+  group by Year, "CREATED ONLINE" 
+  order by Year, "CREATED ONLINE"
+
+  http://www.civicdata.com/api/action/datastore_search_sql?sql=SELECT substring("DATE OPENED" from 1 for 4) as Year, 
+    "CREATED ONLINE",
+    count(*) as Count 
+  from "92c62bd0-64ea-48ed-b28b-6976fba03cde" 
+  WHERE "CREATED ONLINE" != ''
+  AND "PERMIT TYPE" IN
+  ('Building/Trade Permits/Residential/Electrical',
+  'Building/Trade Permits/Residential/Mechanical',
+  'Building/Trade Permits/Residential/Plumbing',
+  'Residential Irrigation',
+  'Residential Electrical',
+  'Residential Mechanical',
+  'Residential Plumbing',
+  'Residential Solar Water Heater',
+  'LD - ROW Utility-Internet',
+  'Lien/Permit/Code Case Research Request')
+  and substring("DATE OPENED" from 1 for 4) >= '2009'
+  group by Year, "CREATED ONLINE" 
+  order by Year, "CREATED ONLINE"
+
